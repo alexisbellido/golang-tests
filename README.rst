@@ -20,9 +20,9 @@ Start the container later and get a bash command line.
   $ docker exec -it mygo-1 /bin/bash
 
 
-Inside the container, start gotour.
+Inside the container, start gotour making sure you have the hostname pointing to the container's private IP and on the host pointing to 127.0.0.1.
 
 .. code-block:: bash
 
   $ root@mygo-1:~# go get golang.org/x/tour/gotour
-  $ root@mygo-1:~# gotour -http 0.0.0.0:3999
+  $ root@mygo-1:~# gotour -http mygo-1:3999
