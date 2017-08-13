@@ -93,3 +93,5 @@ ENV/
 
 .ssh
 .viminfo
+
+.bash_history
