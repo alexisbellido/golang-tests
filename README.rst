@@ -19,7 +19,7 @@ Start the container later and get a bash command line.
   $ docker start mygo-1
   $ docker exec -it mygo-1 /bin/bash
 
-I think I may not need to do the ssh thing because I can just run anything on the container, including git pul, from the host. Here's just executing a compiled Go program but nothing will continue running later.
+You may not need to container running because you can execute commands from the host. Here's just executing a compiled Go program but nothing will continue running later.
 
 .. code-block:: bash
 
@@ -27,7 +27,7 @@ I think I may not need to do the ssh thing because I can just run anything on th
   $ docker start mygo-2
   $ docker exec -it mygo-2 /bin/bash
 
-But I think running /bin/bash or running nothing will allow to start and exec later.
+For this Go image you can use docker run with /bin/bash or no command at all and will still allow you to start and exec the container later.
 
 .. code-block:: bash
 
