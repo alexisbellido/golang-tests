@@ -14,7 +14,7 @@ Try with a private key in case I need to access private repositories.
 Tour of Go
 -------------------------
 
-Run the `tour online`_.
+Running the `tour online`_ is simpler but I made some attempts at running it locally with Docker following the steps below.
 
 Inside the container, start gotour making sure you have the hostname pointing to the container's private IP and on the host pointing to 127.0.0.1. That's why I'm passing --hostname to docker run (I tried with -http 0.0.0.0:3999 but it didn't work).
 
