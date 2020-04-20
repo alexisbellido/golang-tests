@@ -95,3 +95,6 @@ ENV/
 .viminfo
 
 .bash_history
+
+src/github.com
+src/golang.org
