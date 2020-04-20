@@ -2,14 +2,19 @@ Create a container for Golang tests.
 
 .. code-block:: bash
 
-  $ docker run -it -w /root -v ~/.ssh/id_rsa:/root/.ssh/id_rsa -v $SSH_AUTH_SOCK:/run/ssh_agent -e SSH_AUTH_SOCK=/run/ssh_agent -v "$PWD":/root -p 3999:3999 --name mygo-1 --hostname mygo-1 golang:1.10.1-stretch
+  $ docker run -it --rm --mount type=bind,source="$(pwd)"/src,target=/go/src --mount type=bind,source="$(pwd)"/bin,target=/go/bin golang:1.14.2-buster bash
 
+Try with private key.
+
+.. code-block:: bash
+
+  $ docker run -it -w /root -v ~/.ssh/id_rsa:/root/.ssh/id_rsa -v $SSH_AUTH_SOCK:/run/ssh_agent -e SSH_AUTH_SOCK=/run/ssh_agent -v "$PWD":/root -p 3999:3999 --name mygo-1 --hostname mygo-1 golang:1.14.2-buster
 
 Removing after exiting.
 
 .. code-block:: bash
 
-  $ docker run -it --rm -p 3999:3999 --name mygo-1 --hostname mygo-1 golang:1.10.1-stretch
+  $ docker run -it --rm -p 3999:3999 --name mygo-1 --hostname mygo-1 golang:1.14.2-buster
 
 
 Start the container later and get a bash command line.
@@ -23,7 +28,7 @@ You may not need to container running because you can execute commands from the 
 
 .. code-block:: bash
 
-  $ docker run -it -w /root -v "$PWD":/root -p 3999:3999 --name mygo-2 golang:1.10.1-stretch ./hello
+  $ docker run -it -w /root -v "$PWD":/root -p 3999:3999 --name mygo-2 golang:1.14.2-buster ./hello
   $ docker start mygo-2
   $ docker exec -it mygo-2 /bin/bash
 
@@ -31,7 +36,7 @@ For this Go image you can use docker run with /bin/bash or no command at all and
 
 .. code-block:: bash
 
-  $ docker run -it -w /root -v "$PWD":/root -p 3999:3999 --name mygo-2 golang:1.10.1-stretch /bin/bash
+  $ docker run -it -w /root -v "$PWD":/root -p 3999:3999 --name mygo-2 golang:1.14.2-buster /bin/bash
   $ docker start mygo-2
   $ docker exec -it mygo-2 /bin/bash
 
